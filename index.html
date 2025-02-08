@@ -112,6 +112,22 @@
             color: white;
             z-index: 2;
         }
+
+        .clear-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ff4b5c;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .clear-btn:hover {
+            background-color: #e03e4e;
+        }
     </style>
 </head>
 <body>
@@ -127,6 +143,8 @@
         </div>
 
         <input type="text" id="seatNumber" placeholder="Seat Number" readonly>
+
+        <button class="clear-btn" onclick="clearFields()">Clear</button>
     </div>
 
     <div class="footer">Created by Visura Lokitha De Silva</div>
@@ -200,6 +218,12 @@
         function selectSuggestion(index, filteredMembers) {
             document.getElementById("searchBox").value = filteredMembers[index].name;
             document.getElementById("seatNumber").value = filteredMembers[index].seat;
+            document.getElementById("suggestions").style.display = "none";
+        }
+
+        function clearFields() {
+            document.getElementById("searchBox").value = "";
+            document.getElementById("seatNumber").value = "";
             document.getElementById("suggestions").style.display = "none";
         }
     </script>
