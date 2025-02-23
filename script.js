@@ -10,7 +10,7 @@ const members = [
     { name: "Hon. Anura Kumara Dissanayake", seat: "G-08" },
     { name: "Hon. Ramalingam Chandrasekar", seat: "G-09" },
     { name: "Hon. Wasantha Samarasinghe", seat: "G-10" },
-	{ name: "Hon. A.H.M.H. Abayarathna", seat: "G-11" }
+    { name: "Hon. A.H.M.H. Abayarathna", seat: "G-11" }
     { name: "Hon. Chrishantha Abeysena", seat: "G-12" },
     { name: "Hon. (Prof.) Anil Jayantha", seat: "G-13" },
     { name: "Hon. Harshana Nanayakkara", seat: "G-14" },
@@ -26,7 +26,7 @@ const members = [
     { name: "Hon. Nihal Galappaththi", seat: "G-24" },
     { name: "Hon. (Dr.) Nihal Abeysinghe", seat: "G-25" },
     { name: "Hon. Namal Karunaratne", seat: "G-26" },
-	{ name: "Hon. Wasantha Piyathissa", seat: "G-27" },
+    { name: "Hon. Wasantha Piyathissa", seat: "G-27" },
     { name: "Hon. Gamagedara Dissanayake", seat: "G-28" },
     { name: "Hon. R.M. Jayawardhana", seat: "G-29" },
     { name: "Hon. Sunil Watagala", seat: "G-30" },
@@ -153,7 +153,7 @@ const members = [
     { name: "Hon. (Dr.) Janaka Senarathna", seat: "OG-106" },
     { name: "Hon. Chandima Hettiaratchi", seat: "OG-107" },
     { name: "Hon. Champika Hettiarachchi", seat: "OG-108" },
-	{ name: "Hon. Dinesh Hemantha", seat: "OG-109" },
+    { name: "Hon. Dinesh Hemantha", seat: "OG-109" },
     { name: "Hon. (Mrs.) Geetha Herath", seat: "OG-110" },
     { name: "Hon. Bhagya Sri Herath", seat: "OG-111" },
     { name: "Hon. Muhammad Faizal", seat: "OG-112" },
@@ -229,7 +229,7 @@ const members = [
     { name: "Hon. (Dr.) Elayathamby Srinath", seat: "O-79" },
     { name: "Hon. Pathmanathan Sathiyalingam", seat: "O-80" },
     { name: "Hon. (Dr.) Jagath Wickramaratne", seat: "Speaker" },
-	];
+    ];
     
 
 let selectedIndex = -1;
