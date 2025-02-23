@@ -89,10 +89,10 @@ input:focus {
 }
 
 #seatNumber {
-    background: #eaf2ff;
+    background: #fde3ee;
     font-size: 18px;
     font-weight: bold;
-    color: #007bff;
+    color: #800000;
     padding: 10px;
     border-radius: 5px;
     border: none;
