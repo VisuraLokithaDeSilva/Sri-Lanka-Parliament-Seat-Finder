@@ -9,7 +9,7 @@ const members = [
     { name: "Hon. Anura Kumara Dissanayake", seat: "G-08" },
     { name: "Hon. Ramalingam Chandrasekar", seat: "G-09" },
     { name: "Hon. Wasantha Samarasinghe", seat: "G-10" },
-    { name: "Hon. A.H.M.H. Abayarathna", seat: "G-11" }
+    { name: "Hon. A.H.M.H. Abayarathna", seat: "G-11" },
     { name: "Hon. Chrishantha Abeysena", seat: "G-12" },
     { name: "Hon. (Prof.) Anil Jayantha", seat: "G-13" },
     { name: "Hon. Harshana Nanayakkara", seat: "G-14" },
