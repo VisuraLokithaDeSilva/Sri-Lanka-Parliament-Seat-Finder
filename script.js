@@ -1,5 +1,4 @@
 const members = [
-    // G seats
     { name: "Hon. K.V. Samantha Vidyarathna", seat: "G-01" },
     { name: "Hon. Sunil Handunnetti", seat: "G-02" },
     { name: "Hon. K.D. Lal Kantha", seat: "G-03" },
@@ -116,8 +115,6 @@ const members = [
     { name: "Hon. (Dr.) Sri Bavanandarajah", seat: "G-114" },
     { name: "Hon. E.M. Basnayaka", seat: "G-115" },
     { name: "Hon. Wijesiri Basnayake", seat: "G-116" },
-
-    // OG seats
     { name: "Hon. Sunil Biyanwila", seat: "OG-65" },
     { name: "Hon. (Dr.) Sandaruwan Madarasinghe", seat: "OG-66" },
     { name: "Hon. Prageeth Madhuranga", seat: "OG-67" },
@@ -160,8 +157,6 @@ const members = [
     { name: "Hon. Aboobucker Athambawa", seat: "OG-113" },
     { name: "Hon. Najith Indika", seat: "OG-114" },
     { name: "Hon. (Ms.) Lakmali Hemachandra", seat: "OG-115" },
-
-    // O seats
     { name: "Hon. Mano Ganesan", seat: "O-01" },
     { name: "Hon. Kabir Hashim", seat: "O-02" },
     { name: "Hon. Palani Thigambaram", seat: "O-03" },
