@@ -223,7 +223,7 @@ const members = [
     { name: "Hon. M. Nizam Kariapper", seat: "O-64" },
     { name: "Hon. (Dr.) Elayathamby Srinath", seat: "O-79" },
     { name: "Hon. Pathmanathan Sathiyalingam", seat: "O-80" },
-    { name: "Hon. (Dr.) Jagath Wickramaratne", seat: "Speaker" },
+    { name: "Hon. (Dr.) Jagath Wickramaratne", seat: "Speaker" }
     ];
     
 
