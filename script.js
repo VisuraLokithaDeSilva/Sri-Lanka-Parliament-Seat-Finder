@@ -6,7 +6,7 @@ const members = [
     { name: "Hon. (Dr.) Nalinda Jayathissa", seat: "G-05 (Kaluthara)" },
     { name: "Hon. Bimal Rathnayake", seat: "G-06 (National List)" },
     { name: "Hon. (Dr.)(Ms.) Harini Amarasuriya", seat: "G-07 (Colombo)" },
-    { name: "Hon. Anura Kumara Dissanayake", seat: "G-08(Hon. President)" },
+    { name: "Hon. Anura Kumara Dissanayake", seat: "G-08 (Hon. President)" },
     { name: "Hon. Ramalingam Chandrasekar", seat: "G-09 (National List)" },
     { name: "Hon. Wasantha Samarasinghe", seat: "G-10 (Anuradhapura)" },
     { name: "Hon. A.H.M.H. Abayarathna", seat: "G-11 (Puttalam)" },
@@ -157,7 +157,7 @@ const members = [
     { name: "Hon. Muhammad Faizal", seat: "OG-112 (Puttalam)" },
     { name: "Hon. Aboobucker Athambawa", seat: "OG-113 (National List)" },
     { name: "Hon. Najith Indika", seat: "OG-114 (National List)" },
-    { name: "Hon. (Ms.) Lakmali Hemachandra", seat: "OG-115 ( National List)" },
+    { name: "Hon. (Ms.) Lakmali Hemachandra", seat: "OG-115 (National List)" },
     { name: "Hon. Mano Ganesan", seat: "O-01 (National List)" },
     { name: "Hon. Kabir Hashim", seat: "O-02 (Kegalla)" },
     { name: "Hon. Palani Thigambaram", seat: "O-03 (Nuwara Eliya)" },
@@ -227,11 +227,6 @@ const members = [
     { name: "Hon. (Dr.) Jagath Wickramaratne", seat: "Speaker" }
     ];
     
-
-
-
-    
-
 let selectedIndex = -1;
 
 function showSuggestions() {
