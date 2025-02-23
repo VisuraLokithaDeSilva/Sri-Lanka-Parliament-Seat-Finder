@@ -37,7 +37,7 @@ body {
     text-align: center;
     position: relative;
     z-index: 2;
-    transform: translateY(-120px);
+    transform: translateY(-150px);
 }
 
 h2 {
