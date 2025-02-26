@@ -344,13 +344,16 @@ function showSuggestions() {
 
 // Function to clear the search input and seat number
 function clearSearch() {
-    // Clear the search box and seat number input
-    document.getElementById('searchBox').value = '';
-    document.getElementById('seatNumber').value = '';
+    document.getElementById("searchBox").value = ""; // Clear search box
+    document.getElementById("suggestions").innerHTML = ""; // Clear suggestions
+    document.getElementById("seatNumber").value = ""; // Clear seat number
 
-    // Hide the suggestions list
-    document.getElementById('suggestions').style.display = 'none';
+    // Remove seat highlight
+    document.querySelectorAll(".highlighted").forEach(seat => {
+        seat.classList.remove("highlighted");
+    });
 }
+
 
 
 function navigateSuggestions(event) {
