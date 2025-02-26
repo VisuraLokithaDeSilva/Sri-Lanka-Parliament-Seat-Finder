@@ -123,7 +123,7 @@ const members = [
     { name: "Hon. (Dr.) Nandana Millagala", seat: "OG-70 (Kegalla)" },
     { name: "Hon. Riyas Farook", seat: "OG-71 (Kandy)" },
     { name: "Hon. Danushka Ranganath", seat: "OG-72 (Kalutara)" },
-	{ name: "Hon. Sanjeewa Ranasingha", seat: "OG-81 (Kalutara)" },
+    { name: "Hon. Sanjeewa Ranasingha", seat: "OG-81 (Kalutara)" },
     { name: "Hon. Sunil Rathnasiri", seat: "OG-82 (Polonnaruwa)" },
     { name: "Hon. Manjula Sugath Rathnayaka", seat: "OG-83 (Digamadulla)" },
     { name: "Hon. (Ms.) A.M.M.M. Rathwaththe", seat: "OG-84 (Digamadulla)" },
@@ -228,7 +228,7 @@ const members = [
     ];
 
 
-// Seating layout configuration
+
 const sequence = [
     'BBBBBBEBBBBBB', 'BBBBBBEBBBBBB', 'BBBBBBEBBBBBB', 'BBBBBBEBBBBBB', 'BB',
     'BBBBBBEBBBBBB', 'BBBBBBEBBBBBB', 'BBBBBBEBBBBBB', 'BBBBBBEBBBBBB', 'BB',
@@ -263,7 +263,7 @@ const manualNumbers = [
 let selectedIndex = -1;
 let currentHighlightedSeat = null;
 
-// Generate seating layout when the page loads
+
 document.addEventListener('DOMContentLoaded', function() {
     generateSeatingLayout();
 });
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function generateSeatingLayout() {
     const layoutContainer = document.getElementById('seatingLayout');
 
-    let seatIndex = 0; // Index for manual seat numbers
+    let seatIndex = 0; 
 
     sequence.forEach(row => {
         if (row === 'BB') {
@@ -291,7 +291,7 @@ function generateSeatingLayout() {
                         const seatNumber = manualNumbers[seatIndex];
                         seat.setAttribute('data-seat', seatNumber);
                         seat.setAttribute('title', seatNumber);
-                        seat.textContent = seatNumber.split('-')[1]; // Display just the numeric part
+                        seat.textContent = seatNumber.split('-')[1]; 
 
                         seatIndex++;
                     }
@@ -342,13 +342,13 @@ function showSuggestions() {
     });
 }
 
-// Function to clear the search input and seat number
-function clearSearch() {
-    document.getElementById("searchBox").value = ""; // Clear search box
-    document.getElementById("suggestions").innerHTML = ""; // Clear suggestions
-    document.getElementById("seatNumber").value = ""; // Clear seat number
 
-    // Remove seat highlight
+function clearSearch() {
+    document.getElementById("searchBox").value = ""; 
+    document.getElementById("suggestions").innerHTML = ""; 
+    document.getElementById("seatNumber").value = ""; 
+
+    
     document.querySelectorAll(".highlighted").forEach(seat => {
         seat.classList.remove("highlighted");
     });
@@ -374,7 +374,7 @@ function navigateSuggestions(event) {
         }
         return;
     } else {
-        return; // Ignore other keys
+        return; 
     }
 
     items.forEach(item => item.classList.remove("selected"));
@@ -386,28 +386,28 @@ function selectSuggestion(index, filteredMembers) {
     document.getElementById("seatNumber").value = filteredMembers[index].seat;
     document.getElementById("suggestions").style.display = "none";
 
-    // Extract the seat number to highlight
+    
     const seatWithDistrict = filteredMembers[index].seat;
     const seatNumber = seatWithDistrict.split(' ')[0];
 
-    // Highlight the seat
+    
     highlightSeat(seatNumber);
 }
 
 function highlightSeat(seatNumber) {
-    // Remove previous highlight if any
+    
     if (currentHighlightedSeat) {
         currentHighlightedSeat.classList.remove('highlighted');
     }
 
-    // Find the seat element by data-seat attribute
+    
     const seatElement = document.querySelector(`.seat[data-seat="${seatNumber}"]`);
 
     if (seatElement) {
         seatElement.classList.add('highlighted');
         currentHighlightedSeat = seatElement;
 
-        // Scroll to the highlighted seat
+        
         seatElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
@@ -417,7 +417,7 @@ function clearFields() {
     document.getElementById("seatNumber").value = "";
     document.getElementById("suggestions").style.display = "none";
 
-    // Remove highlight
+    
     if (currentHighlightedSeat) {
         currentHighlightedSeat.classList.remove('highlighted');
         currentHighlightedSeat = null;
