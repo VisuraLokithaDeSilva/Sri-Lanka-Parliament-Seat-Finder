@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parliament Seat Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="overlay"></div> 
+
+    <div class="container">
+        <h2>Parliament Seat Finder</h2>
+        <div class="input-group">
+            <input type="text" id="searchBox" oninput="showSuggestions()" onkeydown="navigateSuggestions(event)" placeholder="Search Members...">
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+        <input type="text" id="seatNumber" placeholder="Seat Number" readonly>
+
+        <button class="clear-btn" onclick="clearSearch()">Clear</button>
+    </div>
+
+    <div id="seatingLayoutContainer">
+        <div id="seatingLayout" class="seating-layout"></div>
+    </div>
+
+    <footer class="footer">
+        © 2025 Parliament Seat Finder | Visura Lokitha | BSc Computer Science Undergraduate, Trincomalee Campus, Eastern University, Sri Lanka.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
