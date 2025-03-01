@@ -270,7 +270,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function generateSeatingLayout() {
     const layoutContainer = document.getElementById('seatingLayout');
-
     let seatIndex = 0; 
 
     sequence.forEach(row => {
@@ -293,6 +292,17 @@ function generateSeatingLayout() {
                         seat.setAttribute('title', seatNumber);
                         seat.textContent = seatNumber.split('-')[1]; 
 
+                        // Set seat color based on seat prefix:
+                        if (seatNumber.startsWith("G-") || seatNumber.startsWith("OG-")) {
+                            seat.style.backgroundColor = "#FFADAD"; // light red
+                        } else if (seatNumber.startsWith("O-")) {
+                            if (["O-73", "O-74", "O-75", "O-76", "O-77", "O-78"].includes(seatNumber)) {
+                                seat.style.backgroundColor = "#DEDAF4"; // light purple for specific seats
+                            } else {
+                                seat.style.backgroundColor = "#E7FFCE"; // light green for other O seats
+                            }
+                        }
+
                         // Add click event listener to each seat
                         seat.addEventListener('click', function() {
                             handleSeatClick(seatNumber);
@@ -313,6 +323,11 @@ function generateSeatingLayout() {
         }
     });
 }
+
+
+
+
+
 
 function handleSeatClick(seatNumber) {
     // Get the seat prefix (e.g., "G-01" or "O-73")
