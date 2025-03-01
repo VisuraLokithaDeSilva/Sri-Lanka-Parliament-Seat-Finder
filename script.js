@@ -296,7 +296,7 @@ function generateSeatingLayout() {
                         if (seatNumber.startsWith("G-") || seatNumber.startsWith("OG-")) {
                             seat.style.backgroundColor = "#FFADAD"; // light red
                         } else if (seatNumber.startsWith("O-")) {
-                            if (["O-73", "O-74", "O-75", "O-76", "O-77", "O-78"].includes(seatNumber)) {
+                            if (["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116"].includes(seatNumber)) {
                                 seat.style.backgroundColor = "#DEDAF4"; // light purple for specific seats
                             } else {
                                 seat.style.backgroundColor = "#E7FFCE"; // light green for other O seats
