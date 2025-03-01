@@ -294,10 +294,14 @@ function generateSeatingLayout() {
 
                         // Set seat color based on seat prefix:
                         if (seatNumber.startsWith("G-") || seatNumber.startsWith("OG-")) {
-                            seat.style.backgroundColor = "#FFADAD"; // light red
+                            if (seatNumber === "OG-116") {
+                                seat.style.backgroundColor = "#DEDAF4"; // light purple for OG-116
+                            } else {
+                                seat.style.backgroundColor = "#FFADAD"; // light red for other G and OG seats
+                            }
                         } else if (seatNumber.startsWith("O-")) {
-                            if (["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116"].includes(seatNumber)) {
-                                seat.style.backgroundColor = "#DEDAF4"; // light purple for specific seats
+                            if (["O-73", "O-74", "O-75", "O-76", "O-77", "O-78"].includes(seatNumber)) {
+                                seat.style.backgroundColor = "#DEDAF4"; // light purple for specific O seats
                             } else {
                                 seat.style.backgroundColor = "#E7FFCE"; // light green for other O seats
                             }
