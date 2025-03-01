@@ -315,19 +315,25 @@ function generateSeatingLayout() {
 }
 
 function handleSeatClick(seatNumber) {
-    // Get the seat prefix (e.g., "G-01")
+    // Get the seat prefix (e.g., "G-01" or "O-73")
     const seatPrefix = seatNumber.split(' ')[0];
-    // Find a member whose seat starts with the seat prefix
-    const member = members.find(m => m.seat.startsWith(seatPrefix));
+    // Define the seats that should be marked as "Empty Seat"
+    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78"];
     
-    if (member) {
-        // Populate inputs with member details
-        document.getElementById("searchBox").value = member.name;
-        document.getElementById("seatNumber").value = member.seat;
+    if (emptySeats.includes(seatPrefix)) {
+        // If the clicked seat is one of the empty seats, fill in "Empty Seat"
+        document.getElementById("searchBox").value = "Empty Seat";
+        document.getElementById("seatNumber").value = seatPrefix;
     } else {
-        // If no member is found, at least display the seat number
-        document.getElementById("searchBox").value = "";
-        document.getElementById("seatNumber").value = seatNumber;
+        // Otherwise, look for a matching member
+        const member = members.find(m => m.seat.startsWith(seatPrefix));
+        if (member) {
+            document.getElementById("searchBox").value = member.name;
+            document.getElementById("seatNumber").value = member.seat;
+        } else {
+            document.getElementById("searchBox").value = "";
+            document.getElementById("seatNumber").value = seatNumber;
+        }
     }
     
     // Highlight the seat on the seating layout
@@ -336,6 +342,8 @@ function handleSeatClick(seatNumber) {
     // Hide the suggestions dropdown if it's visible
     document.getElementById("suggestions").style.display = "none";
 }
+
+
 
 
 function showSuggestions() {
