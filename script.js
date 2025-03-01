@@ -250,13 +250,13 @@ const manualNumbers = [
     "G-90", "G-70", "G-50", "G-30", "G-10", "O-10", "O-30", "O-50", "OG-70", "OG-90",
     "G-91", "G-71", "G-51", "G-31", "G-11", "O-11", "O-31", "O-51", "OG-71", "OG-91",
     "G-92", "G-72", "G-52", "G-32", "G-12", "O-12", "O-32", "O-52", "OG-72", "OG-92",
-    "G-109", "G-93", "G-73", "G-53", "G-33", "G-13", "O-13", "O-33", "O-53", "G-73", "OG-93", "OG-109",
-    "G-110", "G-94", "G-74", "G-54", "G-34", "G-14", "O-14", "O-34", "O-54", "G-74", "OG-94", "OG-110",
-    "G-111", "G-95", "G-75", "G-55", "G-35", "G-15", "O-15", "O-35", "O-55", "G-75", "OG-95", "OG-111",
-    "G-112", "G-96", "G-76", "G-56", "G-36", "G-16", "O-16", "O-36", "O-56", "G-76", "OG-96", "OG-112",
-    "G-113", "G-97", "G-77", "G-57", "G-37", "G-17", "O-17", "O-37", "O-57", "G-77", "OG-97", "OG-113",
-    "G-114", "G-98", "G-78", "G-58", "G-38", "G-18", "O-18", "O-38", "O-58", "G-78", "OG-98", "OG-114",
-    "G-115", "G-99", "G-79", "G-59", "G-39", "G-19", "O-19", "O-39", "O-59", "G-79", "OG-99", "OG-115",
+    "G-109", "G-93", "G-73", "G-53", "G-33", "G-13", "O-13", "O-33", "O-53", "O-73", "OG-93", "OG-109",
+    "G-110", "G-94", "G-74", "G-54", "G-34", "G-14", "O-14", "O-34", "O-54", "O-74", "OG-94", "OG-110",
+    "G-111", "G-95", "G-75", "G-55", "G-35", "G-15", "O-15", "O-35", "O-55", "O-75", "OG-95", "OG-111",
+    "G-112", "G-96", "G-76", "G-56", "G-36", "G-16", "O-16", "O-36", "O-56", "O-76", "OG-96", "OG-112",
+    "G-113", "G-97", "G-77", "G-57", "G-37", "G-17", "O-17", "O-37", "O-57", "O-77", "OG-97", "OG-113",
+    "G-114", "G-98", "G-78", "G-58", "G-38", "G-18", "O-18", "O-38", "O-58", "O-78", "OG-98", "OG-114",
+    "G-115", "G-99", "G-79", "G-59", "G-39", "G-19", "O-19", "O-39", "O-59", "O-79", "OG-99", "OG-115",
     "G-116", "G-100", "G-80", "G-60", "G-40", "G-20", "O-20", "O-40", "O-60", "G-80", "OG-100", "OG-116"
 ];
 
@@ -293,6 +293,11 @@ function generateSeatingLayout() {
                         seat.setAttribute('title', seatNumber);
                         seat.textContent = seatNumber.split('-')[1]; 
 
+                        // Add click event listener to each seat
+                        seat.addEventListener('click', function() {
+                            handleSeatClick(seatNumber);
+                        });
+
                         seatIndex++;
                     }
 
@@ -308,6 +313,30 @@ function generateSeatingLayout() {
         }
     });
 }
+
+function handleSeatClick(seatNumber) {
+    // Get the seat prefix (e.g., "G-01")
+    const seatPrefix = seatNumber.split(' ')[0];
+    // Find a member whose seat starts with the seat prefix
+    const member = members.find(m => m.seat.startsWith(seatPrefix));
+    
+    if (member) {
+        // Populate inputs with member details
+        document.getElementById("searchBox").value = member.name;
+        document.getElementById("seatNumber").value = member.seat;
+    } else {
+        // If no member is found, at least display the seat number
+        document.getElementById("searchBox").value = "";
+        document.getElementById("seatNumber").value = seatNumber;
+    }
+    
+    // Highlight the seat on the seating layout
+    highlightSeat(seatPrefix);
+    
+    // Hide the suggestions dropdown if it's visible
+    document.getElementById("suggestions").style.display = "none";
+}
+
 
 function showSuggestions() {
     const input = document.getElementById("searchBox").value.toLowerCase();
@@ -352,6 +381,8 @@ function clearSearch() {
     document.querySelectorAll(".highlighted").forEach(seat => {
         seat.classList.remove("highlighted");
     });
+    
+    currentHighlightedSeat = null;
 }
 
 
