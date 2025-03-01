@@ -160,7 +160,7 @@ input:focus {
 .seat {
     width: 18px;
     height: 18px;
-    background-color: #e3beff;
+    background-color: initial;
     color: #800000;
     display: flex;
     justify-content: center;
@@ -171,16 +171,37 @@ input:focus {
     transition: background-color 0.3s;
 }
 
+.seat[data-seat^="G-"],
+.seat[data-seat^="OG-"] {
+    background-color: lightcoral; /* light red */
+}
+
+/* For seats that start with "O-" → light blue by default */
+.seat[data-seat^="O-"] {
+    background-color: lightblue;
+}
+
+/* But for the specific O seats that should be light green */
+.seat[data-seat="O-73"],
+.seat[data-seat="O-74"],
+.seat[data-seat="O-75"],
+.seat[data-seat="O-76"],
+.seat[data-seat="O-77"],
+.seat[data-seat="O-78"] {
+    background-color: lightgreen;
+}
+
 .seat:hover {
     opacity: 0.8;
 }
 
 .seat.highlighted {
-    background-color: #ff4500;
+    background-color: #ff4500 !important;
     transform: scale(1.2);
     z-index: 10;
     box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
 }
+
 
 .empty {
     width: 18px;
