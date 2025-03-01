@@ -337,7 +337,7 @@ function handleSeatClick(seatNumber) {
     // Get the seat prefix (e.g., "G-01" or "O-73")
     const seatPrefix = seatNumber.split(' ')[0];
     // Define the seats that should be marked as "Empty Seat"
-    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78"];
+    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116"];
     
     if (emptySeats.includes(seatPrefix)) {
         // If the clicked seat is one of the empty seats, fill in "Empty Seat"
