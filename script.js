@@ -1,3 +1,7 @@
+const nameInput = document.getElementById("nameInput");
+const seatNumberInput = document.getElementById("seatNumber");
+const suggestionsList = document.getElementById("suggestions");
+
 const members = [
     { name: "Hon. K.V. Samantha Vidyarathna", seat: "G-01 (Badulla)" },
     { name: "Hon. Sunil Handunnetti", seat: "G-02 (Matara)" },
@@ -260,18 +264,30 @@ const manualNumbers = [
     "G-116", "G-100", "G-80", "G-60", "G-40", "G-20", "O-20", "O-40", "O-60", "O-80", "OG-100", "OG-116"
 ];
 
+let currentSuggestions = [];
 let selectedIndex = -1;
 let currentHighlightedSeat = null;
 
-
+// When the document is ready, generate the seating layout and set up event listeners
 document.addEventListener('DOMContentLoaded', function() {
     generateSeatingLayout();
+
+    // If you want the seat number input to be editable (for two-way search), remove "readonly"
+    seatNumberInput.removeAttribute("readonly");
+
+    // Listen for input events on both fields
+    searchBox.addEventListener("input", function() {
+        updateSuggestions(searchBox.value, "name");
+    });
+    seatNumberInput.addEventListener("input", function() {
+        updateSuggestions(seatNumberInput.value, "seat");
+    });
 });
 
+// Build the seating layout using the sequence and manualNumbers arrays
 function generateSeatingLayout() {
     const layoutContainer = document.getElementById('seatingLayout');
-    let seatIndex = 0; 
-
+    let seatIndex = 0;
     sequence.forEach(row => {
         if (row === 'BB') {
             const rowBreak = document.createElement('div');
@@ -280,204 +296,164 @@ function generateSeatingLayout() {
         } else {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'row';
-
             row.split('').forEach(char => {
                 if (char === 'B') {
-                    const seat = document.createElement('div');
-                    seat.className = 'seat';
-
+                    const seatDiv = document.createElement('div');
+                    seatDiv.className = 'seat';
                     if (seatIndex < manualNumbers.length) {
-                        const seatNumber = manualNumbers[seatIndex];
-                        seat.setAttribute('data-seat', seatNumber);
-                        seat.setAttribute('title', seatNumber);
-                        seat.textContent = seatNumber.split('-')[1]; 
-
-                        // Set seat color based on seat prefix:
-                        if (seatNumber.startsWith("G-") || seatNumber.startsWith("OG-")) {
-                            if (seatNumber === "OG-116") {
-                                seat.style.backgroundColor = "#DEDAF4"; // light purple for OG-116
-                            } else {
-                                seat.style.backgroundColor = "#FFADAD"; // light red for other G and OG seats
-                            }
-                        } else if (seatNumber.startsWith("O-")) {
-                            if (["O-73", "O-74", "O-75", "O-76", "O-77", "O-78"].includes(seatNumber)) {
-                                seat.style.backgroundColor = "#DEDAF4"; // light purple for specific O seats
-                            } else {
-                                seat.style.backgroundColor = "#E7FFCE"; // light green for other O seats
-                            }
+                        const seatNum = manualNumbers[seatIndex];
+                        seatDiv.setAttribute('data-seat', seatNum);
+                        seatDiv.setAttribute('title', seatNum);
+                        // Display only the number portion (after the dash)
+                        seatDiv.textContent = seatNum.split('-')[1];
+                        // Set seat color based on prefix
+                        if (seatNum.startsWith("G-") || seatNum.startsWith("OG-")) {
+                            seatDiv.style.backgroundColor = (seatNum === "OG-116") ? "#DEDAF4" : "#FFADAD";
+                        } else if (seatNum.startsWith("O-")) {
+                            seatDiv.style.backgroundColor = (["O-73","O-74","O-75","O-76","O-77","O-78"].includes(seatNum)) ? "#DEDAF4" : "#E7FFCE";
                         }
-
-                        // Add click event listener to each seat
-                        seat.addEventListener('click', function() {
-                            handleSeatClick(seatNumber);
+                        // When a seat is clicked, update the fields and highlight it
+                        seatDiv.addEventListener("click", function() {
+                            handleSeatClick(seatNum);
                         });
-
                         seatIndex++;
                     }
-
-                    rowDiv.appendChild(seat);
+                    rowDiv.appendChild(seatDiv);
                 } else if (char === 'E') {
-                    const empty = document.createElement('div');
-                    empty.className = 'empty';
-                    rowDiv.appendChild(empty);
+                    const emptyDiv = document.createElement('div');
+                    emptyDiv.className = 'empty';
+                    rowDiv.appendChild(emptyDiv);
                 }
             });
-
             layoutContainer.appendChild(rowDiv);
         }
     });
 }
 
-
-
-
-
-
+// Called when a seat is clicked
 function handleSeatClick(seatNumber) {
-    // Get the seat prefix (e.g., "G-01" or "O-73")
-    const seatPrefix = seatNumber.split(' ')[0];
-    // Define the seats that should be marked as "Empty Seat"
+    // For this layout, seatNumber is already the complete string (e.g. "G-01")
+    const seatPrefix = seatNumber.split(' ')[0]; // In our case, no extra text exists.
     const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116"];
-    
     if (emptySeats.includes(seatPrefix)) {
-        // If the clicked seat is one of the empty seats, fill in "Empty Seat"
-        document.getElementById("searchBox").value = "Empty Seat";
-        document.getElementById("seatNumber").value = seatPrefix;
+        searchBox.value = "Empty Seat";
+        seatNumberInput.value = seatPrefix;
     } else {
-        // Otherwise, look for a matching member
-        const member = members.find(m => m.seat.startsWith(seatPrefix));
+        const member = members.find(m => m.seat.toLowerCase().startsWith(seatPrefix.toLowerCase()));
         if (member) {
-            document.getElementById("searchBox").value = member.name;
-            document.getElementById("seatNumber").value = member.seat;
+            searchBox.value = member.name;
+            seatNumberInput.value = member.seat;
         } else {
-            document.getElementById("searchBox").value = "";
-            document.getElementById("seatNumber").value = seatNumber;
+            searchBox.value = "";
+            seatNumberInput.value = seatNumber;
         }
     }
-    
-    // Highlight the seat on the seating layout
     highlightSeat(seatPrefix);
-    
-    // Hide the suggestions dropdown if it's visible
-    document.getElementById("suggestions").style.display = "none";
+    suggestionsList.style.display = "none";
 }
 
-
-
-
-function showSuggestions() {
-    const input = document.getElementById("searchBox").value.toLowerCase();
-    const suggestionsBox = document.getElementById("suggestions");
-    suggestionsBox.innerHTML = "";
+// Updates the suggestion list based on the input value and search type ("name" or "seat")
+function updateSuggestions(inputValue, searchBy) {
+    suggestionsList.innerHTML = "";
     selectedIndex = -1;
-
-    if (input === "") {
-        suggestionsBox.style.display = "none";
+    if (!inputValue.trim()) {
+        suggestionsList.style.display = "none";
+        currentSuggestions = [];
         return;
     }
-
-    const filteredMembers = members.filter(member => 
-        member.name.toLowerCase().includes(input)
-    );
-
-    if (filteredMembers.length === 0) {
-        suggestionsBox.style.display = "none";
+    inputValue = inputValue.toLowerCase();
+    // Filter member suggestions
+    let memberSuggestions = members.filter(member => {
+        if (searchBy === "name") {
+            return member.name.toLowerCase().includes(inputValue) ||
+                   member.seat.toLowerCase().startsWith(inputValue);
+        } else {
+            return member.seat.toLowerCase().includes(inputValue);
+        }
+    }).map(member => {
+        return { display: member.name, seat: member.seat, type: "member" };
+    });
+    // Filter empty seat suggestions from manualNumbers (only include if no member occupies that seat)
+    let emptySuggestions = manualNumbers.filter(seat => seat.toLowerCase().includes(inputValue))
+        .filter(seat => !members.some(member => member.seat.toLowerCase().startsWith(seat.toLowerCase())))
+        .map(seat => {
+            return { display: "Empty Seat", seat: seat, type: "empty" };
+        });
+    const suggestions = memberSuggestions.concat(emptySuggestions);
+    if (suggestions.length === 0) {
+        suggestionsList.style.display = "none";
+        currentSuggestions = [];
         return;
     }
-
-    suggestionsBox.style.display = "block";
-    filteredMembers.forEach((member, index) => {
+    currentSuggestions = suggestions;
+    suggestionsList.style.display = "block";
+    suggestions.forEach((suggestion, index) => {
         const div = document.createElement("div");
         div.classList.add("suggestion-item");
-        div.textContent = member.name;
+        div.textContent = suggestion.type === "member"
+            ? `${suggestion.display} (${suggestion.seat.split(' ')[0]})`
+            : `${suggestion.display} (${suggestion.seat})`;
         div.setAttribute("data-index", index);
-        div.onclick = function() {
-            selectSuggestion(index, filteredMembers);
-        };
-        suggestionsBox.appendChild(div);
+        div.addEventListener("click", function() {
+            selectSuggestion(index);
+        });
+        suggestionsList.appendChild(div);
     });
 }
 
+// When a suggestion is selected (by click or keyboard), update the fields and highlight the seat
+function selectSuggestion(index) {
+    const suggestion = currentSuggestions[index];
+    if (suggestion.type === "member") {
+        searchBox.value = suggestion.display;
+        seatNumberInput.value = suggestion.seat;
+    } else {
+        searchBox.value = "Empty Seat";
+        seatNumberInput.value = suggestion.seat;
+    }
+    suggestionsList.style.display = "none";
+    highlightSeat(suggestion.seat.split(' ')[0]);
+}
 
+// Highlights the seat element in the layout that matches the given seat prefix
+function highlightSeat(seatPrefix) {
+    // Remove previous highlights
+    document.querySelectorAll(".seat").forEach(seat => seat.classList.remove("highlighted"));
+    const seatElement = document.querySelector(`.seat[data-seat="${seatPrefix}"]`);
+    if (seatElement) {
+        seatElement.classList.add("highlighted");
+        currentHighlightedSeat = seatElement;
+        seatElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+}
+
+// Clear button: resets both fields, suggestions, and seat highlights
 function clearSearch() {
-    document.getElementById("searchBox").value = ""; 
-    document.getElementById("suggestions").innerHTML = ""; 
-    document.getElementById("seatNumber").value = ""; 
-
-    
-    document.querySelectorAll(".highlighted").forEach(seat => {
-        seat.classList.remove("highlighted");
-    });
-    
+    searchBox.value = "";
+    seatNumberInput.value = "";
+    suggestionsList.innerHTML = "";
+    suggestionsList.style.display = "none";
+    currentSuggestions = [];
+    selectedIndex = -1;
+    document.querySelectorAll(".highlighted").forEach(seat => seat.classList.remove("highlighted"));
     currentHighlightedSeat = null;
 }
 
-
-
-function navigateSuggestions(event) {
-    const suggestionsBox = document.getElementById("suggestions");
+// Optional: Keyboard navigation for suggestions (Arrow keys and Enter)
+document.addEventListener("keydown", (event) => {
     const items = document.querySelectorAll(".suggestion-item");
     if (items.length === 0) return;
-
     if (event.key === "ArrowDown") {
         selectedIndex = (selectedIndex + 1) % items.length;
+        items.forEach(item => item.classList.remove("selected"));
+        items[selectedIndex].classList.add("selected");
     } else if (event.key === "ArrowUp") {
         selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+        items.forEach(item => item.classList.remove("selected"));
+        items[selectedIndex].classList.add("selected");
     } else if (event.key === "Enter") {
-        if (selectedIndex >= 0) {
-            const filteredMembers = members.filter(member => 
-                member.name.toLowerCase().includes(document.getElementById("searchBox").value.toLowerCase())
-            );
-            selectSuggestion(selectedIndex, filteredMembers);  
+        if (selectedIndex >= 0 && currentSuggestions.length > 0) {
+            selectSuggestion(selectedIndex);
         }
-        return;
-    } else {
-        return; 
     }
-
-    items.forEach(item => item.classList.remove("selected"));
-    items[selectedIndex].classList.add("selected");
-}
-
-function selectSuggestion(index, filteredMembers) {
-    document.getElementById("searchBox").value = filteredMembers[index].name;
-    document.getElementById("seatNumber").value = filteredMembers[index].seat;
-    document.getElementById("suggestions").style.display = "none";
-
-    
-    const seatWithDistrict = filteredMembers[index].seat;
-    const seatNumber = seatWithDistrict.split(' ')[0];
-
-    
-    highlightSeat(seatNumber);
-}
-
-function highlightSeat(seatNumber) {
-    
-    if (currentHighlightedSeat) {
-        currentHighlightedSeat.classList.remove('highlighted');
-    }
-
-    
-    const seatElement = document.querySelector(`.seat[data-seat="${seatNumber}"]`);
-
-    if (seatElement) {
-        seatElement.classList.add('highlighted');
-        currentHighlightedSeat = seatElement;
-
-        
-        seatElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-}
-
-function clearFields() {
-    document.getElementById("searchBox").value = "";
-    document.getElementById("seatNumber").value = "";
-    document.getElementById("suggestions").style.display = "none";
-
-    
-    if (currentHighlightedSeat) {
-        currentHighlightedSeat.classList.remove('highlighted');
-        currentHighlightedSeat = null;
-    }
-}
+});
