@@ -56,7 +56,7 @@ const members = [
     { name: "Hon. Janitha Ruwan Kodithuwakku", seat: "G-51 (National List)" },
     { name: "Hon. Aruna Jayasekera", seat: "G-52 (National List)" },
     { name: "Hon. Sugath Thilakaratne", seat: "G-53 (National List)" },
-    { name: "Hon.(Prof.) Harshana Suriyapperuma", seat: "G-54 (National List)" },
+    { name: "Hon.(Dr.) Harshana Suriyapperuma", seat: "G-54 (National List)" },
     { name: "Hon. Asoka Sapumal Ranwala", seat: "G-55 (Gampaha)" },
     { name: "Hon. Lakshman Nipuna Arachchi", seat: "G-56 (Colombo)" },
     { name: "Hon. R.M. Gamini Rathnayake", seat: "G-57 (National List)" },
