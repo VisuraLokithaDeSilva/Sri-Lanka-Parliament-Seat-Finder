@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="icon.ico">
 
-    <!-- Google Analytics Tracking Code -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPT7260ZMK"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-EPT7260ZMK');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EPT7260ZMK');
     </script>
 </head>
 <body>
@@ -22,10 +22,11 @@
     <div class="container">
         <h2>Parliament Seat Finder</h2>
         <div class="input-group">
-            <input type="text" id="searchBox" oninput="showSuggestions()" onkeydown="navigateSuggestions(event)" placeholder="Search Members...">
+            <input type="text" id="searchBox" oninput="showSuggestions()" onkeydown="navigateSuggestions(event)" placeholder="Search by name">
             <div id="suggestions" class="suggestions"></div>
         </div>
-        <input type="text" id="seatNumber" placeholder="Seat Number">
+        <input type="text" id="seatNumber"  placeholder="Search by seat numbet">
+        <div id="suggestions" class="suggestions"></div>
 
         <button class="clear-btn" onclick="clearSearch()">Clear</button>
     </div>
@@ -33,6 +34,8 @@
     <div id="seatingLayoutContainer">
         <div id="seatingLayout" class="seating-layout"></div>
     </div>
+
+    <a href="Parliament Seat Finder - User Guid.pdf" download><button class="download-btn"> Download the user guide</button></a>
 
     <footer class="footer">
     © 2025 Visura Lokitha | BSc Computer Science Undergraduate, Trincomalee Campus, Eastern University, Sri Lanka.
