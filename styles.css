@@ -53,6 +53,49 @@ h2 {
     margin-bottom: 15px;
 }
 
+/* Name search suggestions – inside the input-group */
+.input-group > .suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+/* Seat search input and its suggestions (using the fact that it’s a direct child of .container) */
+input#seatNumber {
+    background: #fde3e3;
+    font-size: 18px;
+    font-weight: bold;
+    color: #800000;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    text-align: left;
+    margin-top: 10px; /* Space between the two inputs */
+}
+
+/* The suggestions div immediately following the seatNumber input */
+.container > .suggestions {
+    /* Use static positioning so it pushes the following content down instead of overlapping */
+    position: static;
+    display: none; /* Controlled via JS */
+    margin-top: 5px;
+    background: white;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: auto;
+}
+
 input {
     width: 100%;
     padding: 10px;
@@ -69,16 +112,15 @@ input:focus {
     border-color: #007bff;
 }
 
-#suggestions {
-    position: absolute;
-    background: white;
-    width: 100%;
-    border: 1px solid #ccc;
+#searchBox {
+    background: #fde3e3;
+    font-size: 18px;
+    font-weight: bold;
+    color: #800000;
+    padding: 10px;
     border-radius: 5px;
-    display: none;
-    max-height: 150px;
-    overflow-y: auto;
-    z-index: 1000;
+    border: none;
+    text-align: left;
 }
 
 .suggestion-item {
@@ -92,17 +134,6 @@ input:focus {
     color: white;
 }
 
-#seatNumber {
-    background: #fde3e3;
-    font-size: 18px;
-    font-weight: bold;
-    color: #800000;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-}
-
 .clear-btn {
     margin-top: 15px;
     padding: 10px 20px;
@@ -114,6 +145,22 @@ input:focus {
     cursor: pointer;
     transition: 0.3s;
     margin-bottom: 20px;
+}
+
+.download-btn {
+    display: block;
+    margin: 20px auto;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #800000;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 .clear-btn:hover {
@@ -133,7 +180,6 @@ input:focus {
     z-index: 2;
 }
 
-
 .seating-layout {
     display: flex;
     flex-direction: column;
@@ -149,7 +195,6 @@ input:focus {
     overflow: auto; 
     border: 2px solid #800000;
 }
-
 
 .row {
     display: flex;
@@ -181,7 +226,7 @@ input:focus {
     background-color: lightblue;
 }
 
-/* But for the specific O seats that should be light green */
+/* For the specific O seats that should be light green */
 .seat[data-seat="O-73"],
 .seat[data-seat="O-74"],
 .seat[data-seat="O-75"],
@@ -202,7 +247,6 @@ input:focus {
     box-shadow: 0 0 10px rgba(255, 69, 0, 0.7);
 }
 
-
 .empty {
     width: 18px;
     height: 18px;
@@ -211,4 +255,8 @@ input:focus {
 
 .row-break {
     height: 8px;
+}
+
+a {
+    text-decoration: none;
 }
