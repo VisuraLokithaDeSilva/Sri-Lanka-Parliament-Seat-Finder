@@ -44,7 +44,7 @@ const members = [
     { name: "Hon. Anton Jayakody", seat: "G-39 (Puttalam)" },
     { name: "Hon. Sundaralingam Pradeep", seat: "G-40 (Ratnapura)" },
     { name: "Hon. (Mrs.) Hemali Weerasekara", seat: "G-41 (Gampaha)" },
-    { name: "Hon. (Prof.) Ruwan Ranasinghe", seat: "G-42 (National List)" },
+    { name: "Hon. Ruwan Ranasinghe", seat: "G-42 (National List)" },
     { name: "Hon. Muneer Mulaffer", seat: "G-43 (Gampaha)" },
     { name: "Hon. (Dr.) Susil Ranasinghe", seat: "G-44 (Anuradhapura)" },
     { name: "Hon. (Dr.) Hansaka Wijemuni", seat: "G-45 (Kandy)" },
