@@ -219,7 +219,6 @@ const members = [
     { name: "Hon. D. V. Chanaka", seat: "O-55 (Hambantota)" },
     { name: "Hon. Chanaka Madugoda", seat: "O-56 (Galle)" },
     { name: "Hon. M.S. Uthumalebbe", seat: "O-57 (Digamadulla)" },
-    { name: "Hon. Mohamed Sali Naleem", seat: "O-58 (National List)" },
     { name: "Hon. K.S. Kugathasan", seat: "O-59 (Trincomalee)" },
     { name: "Hon. Thurairasa Ravikaran", seat: "O-60 (Vanni)" },
     { name: "Hon. Suranga Rathnayaka", seat: "O-61 (Anuradhapura)" },
@@ -310,7 +309,7 @@ function generateSeatingLayout() {
                         if (seatNum.startsWith("G-") || seatNum.startsWith("OG-")) {
                             seatDiv.style.backgroundColor = (seatNum === "OG-116") ? "#DEDAF4" : "#FFADAD";
                         } else if (seatNum.startsWith("O-")) {
-                            seatDiv.style.backgroundColor = (["O-73","O-74","O-75","O-76","O-77","O-78"].includes(seatNum)) ? "#DEDAF4" : "#E7FFCE";
+                            seatDiv.style.backgroundColor = (["O-73","O-74","O-75","O-76","O-77","O-78","O-58"].includes(seatNum)) ? "#DEDAF4" : "#E7FFCE";
                         }
                         // When a seat is clicked, update the fields and highlight it
                         seatDiv.addEventListener("click", function() {
