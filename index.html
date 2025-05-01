@@ -49,6 +49,18 @@
             background-color: #f0f0f0;
             transform: translateY(-2px);
         }
+		.pov-button {
+			background-color: white;
+			color: #800000;
+			border: 2px solid #800000;
+			padding: 10px 20px;
+			border-radius: 4px;
+			font-weight: bold;
+			cursor: pointer;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			display: inline-block;
+}
     </style>
 </head>
 <body>
@@ -63,6 +75,11 @@
     <div id="seatingLayoutContainer">
         <div id="seatingLayout" class="seating-layout"></div>
     </div>
+	<div class="center-buttons">
+    <a href="https://aquamarine-axolotl-e15c00.netlify.app/" class="pov-button" target="_blank">Change Point of View</a>
+</div>
+
+
     <div class="container">
         <h2>Parliament Seat Finder</h2>
         <div class="input-group">
@@ -73,9 +90,7 @@
         <div id="suggestions" class="suggestions"></div>
         <button class="clear-btn" onclick="clearSearch()">Clear</button>
     </div>
-    <a href="Parliament Seat Finder - User Guid.pdf" download>
-        <button class="download-btn">Download the user guide</button>
-    </a>
+    
     <footer class="footer">
         © 2025 Visura Lokitha | BSc Computer Science Undergraduate, Trincomalee Campus, Eastern University, Sri Lanka.
     </footer>
