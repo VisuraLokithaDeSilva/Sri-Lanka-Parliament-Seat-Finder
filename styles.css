@@ -147,6 +147,15 @@ input:focus {
     margin-bottom: 20px;
 }
 
+.pov-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+.center-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .download-btn {
     display: block;
     margin: 20px auto;
