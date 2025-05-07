@@ -333,7 +333,7 @@ function generateSeatingLayout() {
 function handleSeatClick(seatNumber) {
     // For this layout, seatNumber is already the complete string (e.g. "G-01")
     const seatPrefix = seatNumber.split(' ')[0]; // In our case, no extra text exists.
-    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116","O-58"];
+    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116","O-58","G-88"];
     if (emptySeats.includes(seatPrefix)) {
         searchBox.value = "Empty Seat";
         seatNumberInput.value = seatPrefix;
