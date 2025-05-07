@@ -308,7 +308,7 @@ function generateSeatingLayout() {
                         // Set seat color based on prefix
                         if (seatNum.startsWith("G-") || seatNum.startsWith("OG-")) {
                             seatDiv.style.backgroundColor = (seatNum === "OG-116") ? "#DEDAF4" : "#FFADAD";
-                        } else if (seatNum.startsWith("O-")) {
+                        } else if (seatNum.startsWith("G-") || seatNum.startsWith("OG-")) {
                             seatDiv.style.backgroundColor = (["O-73","O-74","O-75","O-76","O-77","O-78","O-58","G-88"].includes(seatNum)) ? "#DEDAF4" : "#E7FFCE";
                         }
                         // When a seat is clicked, update the fields and highlight it
