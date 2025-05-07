@@ -309,7 +309,7 @@ function generateSeatingLayout() {
                         if (seatNum.startsWith("G-") || seatNum.startsWith("OG-")) {
                             seatDiv.style.backgroundColor = (seatNum === "OG-116") ? "#DEDAF4" : "#FFADAD";
                         } else if (seatNum.startsWith("O-")) {
-                            seatDiv.style.backgroundColor = (["O-73","O-74","O-75","O-76","O-77","O-78","O-58"].includes(seatNum)) ? "#DEDAF4" : "#E7FFCE";
+                            seatDiv.style.backgroundColor = (["O-73","O-74","O-75","O-76","O-77","O-78","O-58","G-88"].includes(seatNum)) ? "#DEDAF4" : "#E7FFCE";
                         }
                         // When a seat is clicked, update the fields and highlight it
                         seatDiv.addEventListener("click", function() {
@@ -333,7 +333,7 @@ function generateSeatingLayout() {
 function handleSeatClick(seatNumber) {
     // For this layout, seatNumber is already the complete string (e.g. "G-01")
     const seatPrefix = seatNumber.split(' ')[0]; // In our case, no extra text exists.
-    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116","O-58"];
+    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116","O-58","G-88"];
     if (emptySeats.includes(seatPrefix)) {
         searchBox.value = "Empty Seat";
         seatNumberInput.value = seatPrefix;
