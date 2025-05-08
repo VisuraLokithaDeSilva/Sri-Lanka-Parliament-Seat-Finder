@@ -306,7 +306,7 @@ function generateSeatingLayout() {
                         seatDiv.textContent = seatNum.split('-')[1];
                         // Set seat color based on prefix and specific cases
                         if (seatNum.startsWith("G-") || seatNum.startsWith("OG-")) {
-                            if (seatNum === "OG-116" || seatNum === "G-88") {
+                            if (seatNum === "OG-116") {
                                 seatDiv.style.backgroundColor = "#DEDAF4"; // Purple
                             } else {
                                 seatDiv.style.backgroundColor = "#FFADAD"; // Default G/OG color
@@ -341,7 +341,7 @@ function generateSeatingLayout() {
 function handleSeatClick(seatNumber) {
     // For this layout, seatNumber is already the complete string (e.g. "G-01")
     const seatPrefix = seatNumber.split(' ')[0]; // In our case, no extra text exists.
-    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116","O-58","G-88"];
+    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116","O-58"];
     if (emptySeats.includes(seatPrefix)) {
         searchBox.value = "Empty Seat";
         seatNumberInput.value = seatPrefix;
