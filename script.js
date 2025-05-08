@@ -161,7 +161,7 @@ const members = [
     { name: "Hon. Aboobucker Athambawa", seat: "OG-112 (National List)" },
     { name: "Hon. (Dr.) Najith Indika", seat: "OG-113 (National List)" },
     { name: "Hon. (Ms.) Lakmali Hemachandra (AAL)", seat: "OG-114 (National List)" },
-    { name: "Hon. (Ms.) Samantha Ranasingha", seat: "OG-115 (Kegalle)" },
+    { name: "Hon. Samantha Ranasingha", seat: "OG-115 (Kegalle)" },
     { name: "Hon. Mano Ganesan", seat: "O-01 (National List)" },
     { name: "Hon. Kabir Hashim", seat: "O-02 (Kegalla)" },
     { name: "Hon. Palani Thigambaram", seat: "O-03 (Nuwara Eliya)" },
