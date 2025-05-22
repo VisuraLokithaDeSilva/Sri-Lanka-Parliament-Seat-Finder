@@ -26,7 +26,14 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
-        
+        .ad-box {
+    width: 320px;
+    height: 50px;
+    overflow: hidden;
+    margin: 10px auto; /* Center the ad on the page, optional */
+    border-radius: 6px; /* Optional rounded corners */
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Optional subtle shadow */
+  }
         .header h2 {
             color: white;
             margin: 0;
@@ -71,16 +78,19 @@
     </div>
 
     <div class="overlay"></div>
-	<script type="text/javascript">
-	atOptions = {
-		'key' : '5b64ea08ca246b77f7faddc77cad10b6',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/5b64ea08ca246b77f7faddc77cad10b6/invoke.js"></script>
+	
+	<div class="ad-box">
+  <script type="text/javascript">
+    atOptions = {
+      'key' : '5b64ea08ca246b77f7faddc77cad10b6',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.highperformanceformat.com/5b64ea08ca246b77f7faddc77cad10b6/invoke.js"></script>
+</div>
     
     <div id="seatingLayoutContainer">
         <div id="seatingLayout" class="seating-layout"></div>
