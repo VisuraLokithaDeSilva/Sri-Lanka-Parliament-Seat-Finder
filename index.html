@@ -6,6 +6,7 @@
     <title>Parliament Seat Finder</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="icon.ico">
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPT7260ZMK"></script>
     <script>
@@ -14,8 +15,8 @@
         gtag('js', new Date());
         gtag('config', 'G-EPT7260ZMK');
     </script>
+
     <style>
-        /* Maroon header styles */
         .header {
             background-color: #800000;
             color: white;
@@ -26,20 +27,12 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
-        .ad-box {
-    width: 320px;
-    height: 50px;
-    overflow: hidden;
-    margin: 10px auto; /* Center the ad on the page, optional */
-    border-radius: 6px; /* Optional rounded corners */
-    box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Optional subtle shadow */
-  }
+
         .header h2 {
-            color: white;
             margin: 0;
             font-size: 1.5rem;
         }
-        
+
         .header-button {
             background-color: white;
             color: #800000;
@@ -51,44 +44,69 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .header-button:hover {
             background-color: #f0f0f0;
             transform: translateY(-2px);
         }
-		.pov-button {
-			background-color: white;
-			color: #800000;
-			border: 2px solid #800000;
-			padding: 10px 20px;
-			border-radius: 4px;
-			font-weight: bold;
-			cursor: pointer;
-			text-decoration: none;
-			transition: all 0.3s ease;
-			display: inline-block;
-}
+
+        .pov-button {
+            background-color: white;
+            color: #800000;
+            border: 2px solid #800000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .clear-btn {
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: white;
+            background-color: #800000;
+            padding: 10px;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .ad-container {
+            margin: 30px auto;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+
     <!-- Maroon Header -->
     <div class="header">
         <h2>Parliament Seat Finder</h2>
         <a href="https://sri-lanka-parliament-member-directory.netlify.app/" class="header-button" target="_blank">Go to Directory App</a>
     </div>
 
-    <div class="overlay"></div>
-	
-	
-
-    
     <div id="seatingLayoutContainer">
         <div id="seatingLayout" class="seating-layout"></div>
     </div>
-	<div class="center-buttons">
-    <a href="https://seat-finder-for-staff.netlify.app/" class="pov-button" target="_blank">Change Point of View</a>
-</div>
 
+    <div class="center-buttons">
+        <a href="https://seat-finder-for-staff.netlify.app/" class="pov-button" target="_blank">Change Point of View</a>
+    </div>
 
     <div class="container">
         <h2>Parliament Seat Finder</h2>
@@ -97,21 +115,34 @@
             <div id="suggestions" class="suggestions"></div>
         </div>
         <input type="text" id="seatNumber" placeholder="Search by seat number">
-        <div id="suggestions" class="suggestions"></div>
         <button class="clear-btn" onclick="clearSearch()">Clear</button>
     </div>
 
-	
-<script async src="https://a.adcash.com/aclib.js"></script>
-<script type="text/javascript">
-    aclib.runAutoTag({
-        zoneId: 'uxud7jc9vk',
-    });
-</script>
-    
+    <!-- ✅ Ad Container (Banner 300x250) -->
+    <div class="ad-container">
+        <div id="adcash-banner" style="width:300px; height:250px; margin:auto;">
+            <script async src="https://a.adcash.com/aclib.js"></script>
+            <script type="text/javascript">
+                aclib.run("REPLACE_WITH_YOUR_BANNER_ZONE_ID", {
+                    width: 300,
+                    height: 250
+                });
+            </script>
+        </div>
+    </div>
+
+    <!-- ✅ Autotag Adcash Script -->
+    <script async src="https://a.adcash.com/aclib.js"></script>
+    <script type="text/javascript">
+        aclib.runAutoTag({
+            zoneId: 'uxud7jc9vk',
+        });
+    </script>
+
     <footer class="footer">
         © 2025 Visura Lokitha | BSc Computer Science Undergraduate, Trincomalee Campus, Eastern University, Sri Lanka.
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
