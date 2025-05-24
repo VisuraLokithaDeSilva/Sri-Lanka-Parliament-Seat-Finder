@@ -6,7 +6,6 @@
     <title>Parliament Seat Finder</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="icon.ico">
-
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPT7260ZMK"></script>
     <script>
@@ -15,8 +14,8 @@
         gtag('js', new Date());
         gtag('config', 'G-EPT7260ZMK');
     </script>
-
     <style>
+        /* Maroon header styles */
         .header {
             background-color: #800000;
             color: white;
@@ -27,8 +26,16 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
-
+        .ad-box {
+            width: 320px;
+            height: 50px;
+            overflow: hidden;
+            margin: 10px auto;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
         .header h2 {
+            color: white;
             margin: 0;
             font-size: 1.5rem;
         }
@@ -62,43 +69,16 @@
             transition: all 0.3s ease;
             display: inline-block;
         }
-
-        .container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .input-group {
-            margin-bottom: 10px;
-        }
-
-        .clear-btn {
-            margin-top: 10px;
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 12px;
-            color: white;
-            background-color: #800000;
-            padding: 10px;
-            position: relative;
-            margin-top: 50px;
-        }
-
-        .ad-container {
-            margin: 30px auto;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
-
     <!-- Maroon Header -->
     <div class="header">
         <h2>Parliament Seat Finder</h2>
         <a href="https://sri-lanka-parliament-member-directory.netlify.app/" class="header-button" target="_blank">Go to Directory App</a>
     </div>
+
+    <div class="overlay"></div>
 
     <div id="seatingLayoutContainer">
         <div id="seatingLayout" class="seating-layout"></div>
@@ -115,23 +95,11 @@
             <div id="suggestions" class="suggestions"></div>
         </div>
         <input type="text" id="seatNumber" placeholder="Search by seat number">
+        <div id="suggestions" class="suggestions"></div>
         <button class="clear-btn" onclick="clearSearch()">Clear</button>
     </div>
 
-    <!-- ✅ Ad Container (Banner 300x250) -->
-    <div class="ad-container">
-        <div id="adcash-banner" style="width:300px; height:250px; margin:auto;">
-            <script async src="https://a.adcash.com/aclib.js"></script>
-            <script type="text/javascript">
-                aclib.run("REPLACE_WITH_YOUR_BANNER_ZONE_ID", {
-                    width: 300,
-                    height: 250
-                });
-            </script>
-        </div>
-    </div>
-
-    <!-- ✅ Autotag Adcash Script -->
+    <!-- ✅ Adcash Script -->
     <script async src="https://a.adcash.com/aclib.js"></script>
     <script type="text/javascript">
         aclib.runAutoTag({
@@ -142,7 +110,6 @@
     <footer class="footer">
         © 2025 Visura Lokitha | BSc Computer Science Undergraduate, Trincomalee Campus, Eastern University, Sri Lanka.
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
