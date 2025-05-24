@@ -80,6 +80,15 @@
     </div>
 
     <div class="overlay"></div>
+    <div id="adcash-banner" style="width:300px; height:100px; margin: 20px auto; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.1); overflow:hidden;"></div>
+
+<script async src="https://a.adcash.com/aclib.js"></script>
+<script>
+  aclib.loadBanner('your-zone-id-here', {
+    format: '300x100',
+    container: 'adcash-banner'
+  });
+</script>
 
     <div id="seatingLayoutContainer">
         <div id="seatingLayout" class="seating-layout"></div>
@@ -101,12 +110,7 @@
     </div>
 
     <!-- ✅ Adcash Script -->
-    <script async src="https://a.adcash.com/aclib.js"></script>
-    <script type="text/javascript">
-        aclib.runAutoTag({
-            zoneId: 'uxud7jc9vk',
-        });
-    </script>
+
 
     <footer class="footer">
         © 2025 Visura Lokitha | BSc Computer Science Undergraduate, Trincomalee Campus, Eastern University, Sri Lanka.
