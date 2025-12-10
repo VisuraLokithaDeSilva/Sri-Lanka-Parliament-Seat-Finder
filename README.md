@@ -20,7 +20,7 @@ A responsive web application designed to help users locate the seating positions
 
 ## 🚀 Live Demo
 
-[View Live Project](https://your-project-link.netlify.app)
+[View Live Project](https://sri-lanka-parliament-seat-finder.netlify.app/)
 
 ## 🛠️ Technologies Used
 
