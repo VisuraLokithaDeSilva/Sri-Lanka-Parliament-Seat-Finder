@@ -1971,16 +1971,16 @@ const memberDetailsData = [
       },
 	  
 	  {
-        name: "Hon. M.S.A Abthul Wazeeth",
+        name: "HON. Habeeb Rifan",
         title: "",
-        mobile: "0777281069",
-        telephoneSitting: "0777281069",
-        telephoneNonSitting: "0777281069",
-        addressSitting: "C/O, M.L.M. Haroon,No. 74, Liyanage Road,Dehiwala.",
-        addressNonSitting: "C/O, M.L.M. Haroon,No. 74, Liyanage Road,Dehiwala.",
+        mobile: "0776144400",
+        telephoneSitting: "0776144400",
+        telephoneNonSitting: "0776144400",
+        addressSitting: "D10 parliament Members Housing Complex",
+        addressNonSitting: "No.260A, Maulana Street, Oddamawadi. ",
         fax: "",
-        email: "chithralfernando@parliament.Ik",
-        image: "https://www.parliament.lk/uploads/images/members/profile_images/thumbs/3626.jpg"
+        email: "",
+        image: "https://drive.google.com/file/d/1wrL6JrL_LmofCd1ICYDYhnEnaXkZ6m2a/view?usp=sharing"
       },
 	  
       {
