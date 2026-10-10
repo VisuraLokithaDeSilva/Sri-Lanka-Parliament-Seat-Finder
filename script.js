@@ -223,7 +223,7 @@ const members = [
     { name: "Hon. D. V. Chanaka", seat: "O-55 (Hambantota)" },
     { name: "Hon. Chanaka Madugoda", seat: "O-56 (Galle)" },
     { name: "Hon. M.S. Uthumalebbe", seat: "O-57 (Digamadulla)" },
-    { name: "Hon. M.S.A Abthul Wazeeth", seat: "O-58 (National List)" },
+    { name: "HON. Habeeb Rifan", seat: "O-58 (National List)" },
     { name: "HON. Kathiravelu Shanmugam Kugathasan", seat: "O-59 (Trincomalee)" },
     { name: "Hon. Thurairasa Ravikaran", seat: "O-60 (Vanni)" },
     { name: "Hon. Suranga Rathnayaka", seat: "O-61 (Anuradhapura)" },
@@ -403,7 +403,7 @@ function generateSeatingLayout() {
 function handleSeatClick(seatNumber) {
     // For this layout, seatNumber is already the complete string (e.g. "G-01")
     const seatPrefix = seatNumber.split(' ')[0]; // In our case, no extra text exists.
-    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116", "O-58"];
+    const emptySeats = ["O-73", "O-74", "O-75", "O-76", "O-77", "O-78", "OG-116"];
     if (emptySeats.includes(seatPrefix)) {
         searchBox.value = "Empty Seat";
         seatNumberInput.value = seatPrefix;
