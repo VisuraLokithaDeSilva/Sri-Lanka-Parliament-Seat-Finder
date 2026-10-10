@@ -1980,7 +1980,7 @@ const memberDetailsData = [
         addressNonSitting: "No.260A, Maulana Street, Oddamawadi. ",
         fax: "",
         email: "",
-        image: "https://drive.google.com/file/d/1wrL6JrL_LmofCd1ICYDYhnEnaXkZ6m2a/view?usp=sharing"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1k2WHasht_V4PYwVYi3dnbJ8yhu9j2MGncV7aI4KEV0RNqNSi7YlbycOd&s=10"
       },
 	  
       {
